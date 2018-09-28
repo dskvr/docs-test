@@ -1,34 +1,14 @@
-#!/bin/bash
-# -- /path/to/src
-if test -z '$1'
-then
-  PATH_ROOT=$1
-else
-  PATH_ROOT=".."
-fi
+PATH_BUILD=./build
+PATH_THEME=./theme
+PATH_STATIC=./static
+PATH_ROOT=../..
 
-if test -z '$2'
-then
-  PATH_RPO=$2
-else
-  PATH_SRC="/src"
-fi
-
-if test -z '$3'
-then
-  PATH_DOC=$3
-else
-  PATH_DOC="/docs"
-fi
-
-PATH_BUILD=$PATH_ROOT$PATHDOC/build
-PATH_SOURCE=$PATH_ROOT$PATH_SRC/src
-PATH_THEME=$PATH_ROOT$PATHDOC/theme
+PATH_SOURCE=$PATH_ROOT/src
 
 #generate typedoc into ./docs/build
-./node_modules/.bin/typedoc $PATH_SRC --options typedoc.json
+./node_modules/.bin/typedoc $PATH_SRC --options ../../typedoc.json
 #copy book.json into new build directory
-cp ./book.json $PATH_BUILD/book.json
+cp ./book.json ./book.json
 #copy style overrides into new build directory
 cp -R $PATH_THEME/styles $PATH_BUILD/styles
 #copy layout overrides into new build directory
