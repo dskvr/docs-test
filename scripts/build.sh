@@ -14,18 +14,13 @@ fi
 
 if test -z '$3'
 then
-  PATH_SOURCE=$2
+  PATH_BUILD=$3
 else
-  PATH_SOURCE="/build"
+  PATH_BUILD="./docs/build"
 fi
 
-PATH_BUILD=./docs/build
-PATH_STATIC=./static
-
-PATH_SOURCE=./src
-
 #generate typedoc into ./docs/build
-./node_modules/.bin/typedoc $PATH_SOURCE --options ./typedoc.json
+./node_modules/.bin/typedoc $PATH_SOURCE --options typedoc.json
 #copy book.json into new build directory
 cp ./book.json ./book.json
 #copy style overrides into new build directory
