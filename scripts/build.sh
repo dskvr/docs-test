@@ -22,7 +22,7 @@ fi
 #generate typedoc into ./docs/build
 ./node_modules/.bin/typedoc $PATH_SOURCE --options typedoc.json
 #copy book.json into new build directory
-cp ./book.json ./book.json
+cp $PATH_DOCS/book.json $PATH_BUILD/book.json
 #copy style overrides into new build directory
 cp -R $PATH_DOCS/theme/styles $PATH_BUILD/styles
 #copy layout overrides into new build directory
