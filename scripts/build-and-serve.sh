@@ -1,24 +1,8 @@
 #!/bin/bash
-if test -z '$1'
-then
-  PATH_ROOT=$1
-else
-  PATH_ROOT=".."
-fi
+PATH_SOURCE=${1-"./src"}
+PATH_DOCS=${2-"./docs"}
+PATH_BUILD=${3-$PATH_DOCS/build}
+PATH_DOC_UTIL=${4-$PATH_DOCS/eosio-docs}
 
-if test -z '$2'
-then
-  PATH_RPO=$2
-else
-  PATH_SRC="/src"
-fi
-
-if test -z '$3'
-then
-  PATH_DOC=$3
-else
-  PATH_DOC="/docs"
-fi
-
-sh ./build.sh
-sh ./scripts/serve.sh
+sh ./build.sh $PATH_SOURCE $PATH_DOCS $PATH_BUILD $PATH_DOC_UTIL
+sh ./scripts/serve.sh $PATH_BUILD
