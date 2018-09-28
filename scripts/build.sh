@@ -2,27 +2,38 @@
 # -- /path/to/src
 if test -z '$1'
 then
-  PATH_SRC = $1
+  PATH_ROOT=$1
 else
-  PATH_SRC = "../../src"
+  PATH_ROOT=".."
 fi
 
 if test -z '$2'
 then
-  PATH_ROOT = $2
+  PATH_RPO=$2
 else
-  PATH_DOC_ROOT = ".."
+  PATH_SRC="/src"
 fi
 
+if test -z '$3'
+then
+  PATH_DOC=$3
+else
+  PATH_DOC="/docs"
+fi
+
+PATH_BUILD=$PATH_ROOT$PATHDOC/build
+PATH_SOURCE=$PATH_ROOT$PATH_SRC/src
+PATH_THEME=$PATH_ROOT$PATHDOC/theme
+
 #generate typedoc into ./docs/build
-./node_modules/.bin/typedoc $PATH --options typedoc.json
+./node_modules/.bin/typedoc $PATH_SRC --options typedoc.json
 #copy book.json into new build directory
-cp ./book.json $PATH/build/book.json
+cp ./book.json $PATH_BUILD/book.json
 #copy style overrides into new build directory
-cp -R ./theme/styles $PATH/build/styles
+cp -R $PATH_THEME/styles $PATH_BUILD/styles
 #copy layout overrides into new build directory
-cp -R ./theme/layouts $PATH/build/layouts
+cp -R $PATH_THEME/layouts $PATH_BUILD/layouts
 #copy images into new build directory
-cp -R ./theme/images $PATH/build/images
+cp -R $PATH_THEME/images $PATH_BUILD/images
 #cd to ./docs/build where typedoc has already been generated and run gitbook install/build
-cd ./theme/build && ./node_modules/.bin/gitbook install && ./node_modules/.bin/gitbook build .
+cd $PATH_BUILD && ./node_modules/.bin/gitbook install && ./node_modules/.bin/gitbook build .
