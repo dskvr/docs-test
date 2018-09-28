@@ -26,7 +26,7 @@ cp $PATH_DOCS/book.json $PATH_BUILD/book.json
 #copy style overrides into new build directory
 cp -R $PATH_DOCS/theme/styles $PATH_BUILD/styles
 #copy layout overrides into new build directory
-cp -R $PATH_DOCS/theme/layouts $PATH_BUILD/layouts
+cp -R $PATH_DOCS/theme/layout $PATH_BUILD/layout
 #copy images into new build directory
 cp -R $PATH_DOCS/theme/images $PATH_BUILD/images
 cp -a $PATH_DOCS/static/. $PATH_BUILD/
