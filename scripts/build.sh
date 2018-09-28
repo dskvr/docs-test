@@ -29,6 +29,6 @@ cp -R $PATH_DOCS/theme/styles $PATH_BUILD/styles
 cp -R $PATH_DOCS/theme/layouts $PATH_BUILD/layouts
 #copy images into new build directory
 cp -R $PATH_DOCS/theme/images $PATH_BUILD/images
-cp -a $PATH_DOCS/theme/static/. $PATH_BUILD/
+cp -a $PATH_DOCS/static/. $PATH_BUILD/
 #cd to ./docs/build where typedoc has already been generated and run gitbook install/build
 cd $PATH_BUILD && ./node_modules/.bin/gitbook install && ./node_modules/.bin/gitbook build .
