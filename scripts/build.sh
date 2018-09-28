@@ -6,7 +6,7 @@ PATH_ROOT=../..
 PATH_SOURCE=$PATH_ROOT/src
 
 #generate typedoc into ./docs/build
-./node_modules/.bin/typedoc $PATH_SRC --options ../../typedoc.json
+./node_modules/.bin/typedoc $PATH_SOURCE --options ../../typedoc.json
 #copy book.json into new build directory
 cp ./book.json ./book.json
 #copy style overrides into new build directory
