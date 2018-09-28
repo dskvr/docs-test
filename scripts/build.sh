@@ -2,7 +2,7 @@ if test -z '$1'
 then
   PATH_DOCS=$1
 else
-  PATH_DOCS="./docs/eosio-docs/"
+  PATH_DOCS="./docs/eosio-docs"
 fi
 
 if test -z '$2'
