@@ -32,4 +32,7 @@ cp -R $PATH_DOCS/theme/images $PATH_BUILD/images
 cp -af ./docs/static/. $PATH_BUILD/
 #cd to ./docs/build where typedoc has already been generated and run gitbook install/build
 cd $PATH_BUILD && ../../node_modules/.bin/gitbook install
+
+echo pwd
+
 cd ../.. ./node_modules/.bin/gitbook build $PATH_BUILD
