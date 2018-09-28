@@ -1,3 +1,3 @@
 #!/bin/bash
-sh ./docs/build.sh
-sh ./docs/serve.sh
+sh ./build.sh
+sh ./serve.sh

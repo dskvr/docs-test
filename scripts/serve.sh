@@ -1,1 +1,1 @@
-./node_modules/.bin/gitbook serve ./docs/build
+./node_modules/.bin/gitbook serve ./build
