@@ -1,33 +1,9 @@
 # If there are implementation issues due to non-compliance of patterns, pass in relative paths (from root of typescript project) as positionals.
 
-if test -z '$1'
-then
-  PATH_SOURCE=$1
-else
-  PATH_SOURCE=./src
-fi
-
-if test -z '$2'
-then
-  PATH_DOCS=$2
-else
-  PATH_DOCS=./docs
-fi
-
-if test -z '$3'
-then
-  PATH_BUILD=$3
-else
-  PATH_BUILD=$PATH_DOCS/build
-fi
-
-if test -z '$4'
-then
-  PATH_DOC_UTIL=$4
-else
-  PATH_DOC_UTIL=$PATH_DOCS/eosio-docs
-fi
-
+PATH_SOURCE=${1-"./src"}
+PATH_DOCS=${2-"./docs"}
+PATH_BUILD=${3-$PATH_DOCS/build}
+PATH_DOC_UTIL=${4-$PATH_DOCS/eosio-docs}
 
 #generate typedoc into ./docs/build
 ./node_modules/.bin/typedoc $PATH_SOURCE --options typedoc.json
